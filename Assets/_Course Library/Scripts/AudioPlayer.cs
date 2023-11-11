@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 [RequireComponent(typeof(AudioSource))] 
 
-public class AudioSourcePlayer : MonoBehaviour
+public class AudioPlayer : MonoBehaviour
 {
 
     protected AudioSource audioSource;
@@ -26,7 +26,7 @@ public class AudioSourcePlayer : MonoBehaviour
     public virtual void PlayRecord()
     {
        
-        audioClip =recordInteractor.GetOldestInteractableSelected().transform.gameObject.GetComponent<AudioSourceObject>().AudioRecord;
+        audioClip =recordInteractor.GetOldestInteractableSelected().transform.gameObject.GetComponent<AudioContainer>().AudioRecord;
         
         if (audioClip != null) audioSource.PlayOneShot(audioClip);
     }

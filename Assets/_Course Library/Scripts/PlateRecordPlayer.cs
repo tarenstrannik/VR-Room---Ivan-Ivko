@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class PlateRecordPlayer : AudioSourcePlayer
+public class PlateRecordPlayer : AudioPlayer
 {
 
     private Coroutine rotationCoroutine;
