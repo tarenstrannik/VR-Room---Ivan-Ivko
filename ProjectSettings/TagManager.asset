@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlateRecordPlayer
   - TV
+  - FireFlame
   layers:
   - Default
   - TransparentFX
