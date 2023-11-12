@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlateRecordPlayer
+  - TV
   layers:
   - Default
   - TransparentFX
