@@ -22,8 +22,8 @@ MonoBehaviour:
   - Tools
   - PlatterRecords
   - RecordPlayerHandle
-  - 
-  - 
+  - DirectInteractionOnly
+  - RayInteractionOnly
   - 
   - 
   - 
