@@ -8,8 +8,9 @@ public class AudioPlayer : MonoBehaviour
 {
 
     protected AudioSource audioSource;
+    protected AudioClip audioClipFromRecord;
     [SerializeField] protected XRSocketInteractor recordInteractor;
-    protected AudioClip audioClip;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -25,14 +26,23 @@ public class AudioPlayer : MonoBehaviour
 
     public virtual void PlayRecord()
     {
-       
-        audioClip =recordInteractor.GetOldestInteractableSelected().transform.gameObject.GetComponent<AudioContainer>().AudioRecord;
-        
-        if (audioClip != null) audioSource.PlayOneShot(audioClip);
+
+        audioSource.Play();
     }
 
     public virtual void StopRecord()
     {
         audioSource.Stop();
+    }
+
+    public void GetAudioFromRecord()
+    {
+        audioClipFromRecord = recordInteractor.GetOldestInteractableSelected().transform.gameObject.GetComponent<AudioContainer>().AudioRecord;
+
+        if (audioClipFromRecord != null) audioSource.clip= audioClipFromRecord;
+    }
+    public void ClearAudio()
+    {
+        audioSource.clip = null;
     }
 }
