@@ -233,6 +233,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 4223256853260537097}
+        m_TargetAssemblyTypeName: PlateRecordPlayer, Assembly-CSharp
+        m_MethodName: ChechWhereHandleAndMoveDynAttachTransform
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_OnHoverEntered:
@@ -279,7 +291,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.115
+  m_Radius: 0.111
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1456420236666779174
 GameObject:
@@ -566,14 +578,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3354643955711676886}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.024829034, y: 0.38254523, z: 0.010284523, w: 0.9235459}
+  m_LocalRotation: {x: -0.025089746, y: 0.35823852, z: 0.009631052, w: 0.9332432}
   m_LocalPosition: {x: -0.10836681, y: 0.047522206, z: -0.035468735}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7440652842842277063}
   m_Father: {fileID: 5885611591023471311}
-  m_LocalEulerAnglesHint: {x: -3.08, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: -3.08, y: 42, z: 0}
 --- !u!1 &3478302889543751795
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,14 +746,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4277114971988866941}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.024829034, y: 0.38254523, z: 0.010284523, w: 0.9235459}
+  m_LocalRotation: {x: -0.025089746, y: 0.35823852, z: 0.009631052, w: 0.9332432}
   m_LocalPosition: {x: -0.10836681, y: 0.047522206, z: -0.035468735}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6178165007872119239}
   m_Father: {fileID: 5885611591023471311}
-  m_LocalEulerAnglesHint: {x: -3.08, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: -3.08, y: 42, z: 0}
 --- !u!1 &4413303878251052284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,8 +1078,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.031116553, y: 0.02360164, z: 0.21640511}
-  m_Center: {x: -0.003641294, y: 0.007865712, z: 0.08805847}
+  m_Size: {x: 0.015630778, y: 0.02360164, z: 0.07282584}
+  m_Center: {x: -0.012117193, y: 0.007865738, z: 0.15984811}
 --- !u!54 &5734570686272376127
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1285,7 +1297,7 @@ HingeJoint:
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
-  m_ConnectedMassScale: 0.1
+  m_ConnectedMassScale: 1
 --- !u!114 &1901111000103085478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2049,9 +2061,6 @@ MonoBehaviour:
   recordInteractor: {fileID: 3610990516028147429}
   RotationSpeed: 20
   recordPlate: {fileID: 3279844692967423141}
-  baseHandleYAngle: 0
-  startHandleYAngle: 45
-  finishHandleYAngle: 63.2
   m_StartPlayingTransform: {fileID: 7440652842842277063}
   m_EndPlayingTransform: {fileID: 3122638956551095580}
   m_BaseHandleTransform: {fileID: 5319288813284681703}
