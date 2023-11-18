@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.XR.Interaction.Toolkit;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlateRecordPlayer : AudioPlayer
 {
@@ -16,10 +17,16 @@ public class PlateRecordPlayer : AudioPlayer
 
     [SerializeField] private GameObject recordPlate;
 
-    [SerializeField] private float baseHandleYAngle = 0f;
-    [SerializeField] private float startHandleYAngle = 45f;
-    [SerializeField] private float finishHandleYAngle = 63.2f;
 
+
+    [SerializeField] private Transform m_StartPlayingTransform;
+    [SerializeField] private Transform m_EndPlayingTransform;
+    [SerializeField] private Transform m_BaseHandleTransform;
+    //==================
+    private float rotationFromStartToFinish;
+    private float m_angleCurToStart;
+    private float m_angleCurToEnd;
+    //==================
     [SerializeField] private GameObject handle;
     [SerializeField] private GameObject handleDynamicAttach;
     private float audioLengthTime;
@@ -35,10 +42,17 @@ public class PlateRecordPlayer : AudioPlayer
 
     private Coroutine m_RotatePlate = null;
 
-    private float m_localHandleEulerY;
+
     private float m_clipTimePercent;
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        rotationFromStartToFinish = Quaternion.Angle(m_StartPlayingTransform.rotation, m_EndPlayingTransform.rotation);
+        //rotationFromStartToFinish = Quaternion.Dot(m_StartPlayingTransform.rotation, m_EndPlayingTransform.rotation);
+    }
+
     protected override void Start()
     {
         base.Start();
@@ -49,7 +63,7 @@ public class PlateRecordPlayer : AudioPlayer
     public void AutoPlayRecord()
     {
         if (handlePrepareCoroutine != null) StopCoroutine(handlePrepareCoroutine);
-        handlePrepareCoroutine = StartCoroutine(MoveHandle(handle,transform.localEulerAngles.y, startHandleYAngle, prepareTime));
+        handlePrepareCoroutine = StartCoroutine(MoveHandle(handle, m_BaseHandleTransform.rotation, m_StartPlayingTransform.rotation, prepareTime));
 
         if (afterHandlePrepareCoroutine != null) StopCoroutine(afterHandlePrepareCoroutine);
         afterHandlePrepareCoroutine = StartCoroutine(AutoAfterHadlePrepare());
@@ -73,7 +87,7 @@ public class PlateRecordPlayer : AudioPlayer
         audioLengthTime = audioClipFromRecord.length;
         //handle.transform.rotation = Quaternion.Euler(0, startHandleYAngle, 0);
 
-        handleMovingWhileAudioPlayingCoroutine = StartCoroutine(MoveHandle(handle,startHandleYAngle, finishHandleYAngle, audioLengthTime));
+        handleMovingWhileAudioPlayingCoroutine = StartCoroutine(MoveHandle(handle, m_StartPlayingTransform.rotation, m_EndPlayingTransform.rotation, audioLengthTime));
     }
     public void AutoStopRecord()
     {
@@ -88,7 +102,7 @@ public class PlateRecordPlayer : AudioPlayer
         if (afterHandlePrepareCoroutine != null) StopCoroutine(afterHandlePrepareCoroutine);
         if (handlePrepareCoroutine != null) StopCoroutine(handlePrepareCoroutine);
         
-        handlePrepareCoroutine = StartCoroutine(MoveHandle(handle, handle.transform.localEulerAngles.y, baseHandleYAngle, unprepareTime));
+        handlePrepareCoroutine = StartCoroutine(MoveHandle(handle, handle.transform.rotation, m_BaseHandleTransform.rotation, unprepareTime));
         //handle.transform.localEulerAngles = new Vector3(0, baseHandleYAngle, 0);
     }
     public void StartRotatePlate()
@@ -113,37 +127,35 @@ public class PlateRecordPlayer : AudioPlayer
     }
 
 
-    IEnumerator MoveHandle(GameObject handle, float startYAngle, float endYAngle,float moveTime)
+    IEnumerator MoveHandle(GameObject handle, Quaternion startRotation, Quaternion endRotation,float moveTime)
     {
         curHandleTime = 0f;
         isHandleReady = false;
+        
+        var startParentRotation = Quaternion.Inverse(transform.rotation);
 
-        var startGlobalEulerY= startYAngle+ transform.eulerAngles.y;
-        var endGlobalEulerY= endYAngle + transform.eulerAngles.y;
-        var startGlobalVector = new Vector3(handle.transform.eulerAngles.x, startGlobalEulerY, handle.transform.eulerAngles.z);
-        var endGlobalVector = new Vector3(handle.transform.eulerAngles.x, endGlobalEulerY, handle.transform.eulerAngles.z);
         while (curHandleTime < moveTime)
         {
-           
-            handle.transform.eulerAngles = Vector3.Slerp(startGlobalVector, endGlobalVector, curHandleTime / moveTime);
+            
+            var curStartRotation = transform.rotation * startParentRotation* startRotation;
+            var curEndRotation = transform.rotation * startParentRotation * endRotation;
+            //Debug.Log(curEndRotation + " " + endRotation+" "+ (handle.transform.eulerAngles.y- transform.eulerAngles.y));
+            handle.transform.rotation = Quaternion.Slerp(curStartRotation, curEndRotation, curHandleTime / moveTime);
            
             curHandleTime += Time.deltaTime;
 
             yield return null;
         }
-        handle.transform.eulerAngles = endGlobalVector;
+        handle.transform.rotation = endRotation * transform.rotation * startParentRotation;
         isHandleReady = true;
 
     }
+   
     public void MoveHandleOnPlay()
     {
         if (handleMovingWhileAudioPlayingCoroutine == null)
         {
-            if (m_localHandleEulerY < startHandleYAngle)
-            {
-                m_localHandleEulerY = startHandleYAngle;
-            }
-            handleMovingWhileAudioPlayingCoroutine = StartCoroutine(MoveHandle(handleDynamicAttach, m_localHandleEulerY, finishHandleYAngle, audioClipFromRecord.length * (1 - m_clipTimePercent)));
+             handleMovingWhileAudioPlayingCoroutine = StartCoroutine(MoveHandle(handleDynamicAttach, handle.transform.rotation, m_EndPlayingTransform.rotation, audioClipFromRecord.length * (1 - m_clipTimePercent)));
         }
     }
     public void StopHandle()
@@ -157,8 +169,17 @@ public class PlateRecordPlayer : AudioPlayer
 
     public void CalculateStartPlayParameters()
     {
-        m_localHandleEulerY = (handle.transform.eulerAngles.y - transform.eulerAngles.y) < startHandleYAngle ? startHandleYAngle : (handle.transform.eulerAngles.y - transform.eulerAngles.y);
-        m_clipTimePercent = Mathf.InverseLerp(startHandleYAngle, finishHandleYAngle, m_localHandleEulerY);
+
+        // m_clipTimePercent=Mathf.InverseLerp(rotationFromStartToFinish, Quaternion.Dot(m_StartPlayingTransform.rotation, handle.transform.rotation), Quaternion.Dot(m_EndPlayingTransform.rotation, handle.transform.rotation));
+
+        //m_clipTimePercent = Mathf.InverseLerp(startHandleYAngle, finishHandleYAngle, m_localHandleEulerY); разные варианты рассчета
+
+        CalculateAnglesToStartAndEnd();
+        if (m_angleCurToEnd >= rotationFromStartToFinish && m_angleCurToEnd >= m_angleCurToStart)
+        {
+            handle.transform.rotation = m_StartPlayingTransform.rotation;
+        }
+        m_clipTimePercent = Mathf.InverseLerp(0, rotationFromStartToFinish, Quaternion.Angle(m_StartPlayingTransform.rotation, handle.transform.rotation));
         
     }
     //====================manual
@@ -178,22 +199,42 @@ public class PlateRecordPlayer : AudioPlayer
             m_MoveDynamicHandleAttachOnHover = null;
         }
     }
+    private void CalculateAnglesToStartAndEnd()
+    {
+        m_angleCurToStart = Quaternion.Angle(handle.transform.rotation, m_StartPlayingTransform.rotation);
+        m_angleCurToEnd = Quaternion.Angle(handle.transform.rotation, m_EndPlayingTransform.rotation);
+    }
     private IEnumerator C_MoveDynamicSocketAttachOnHover()
     {
    
         while(true)
         {
-            var localHandleEulerY = handle.transform.eulerAngles.y - transform.eulerAngles.y;
-            if (localHandleEulerY >= startHandleYAngle && localHandleEulerY <= finishHandleYAngle)
+            CalculateAnglesToStartAndEnd();
+            if (m_angleCurToEnd <= rotationFromStartToFinish && rotationFromStartToFinish >= m_angleCurToStart)
             {
-                var curRotation = handleDynamicAttach.transform.localEulerAngles;
-                handleDynamicAttach.transform.localEulerAngles = new Vector3(curRotation.x, localHandleEulerY, curRotation.z);
+                handleDynamicAttach.transform.rotation = handle.transform.rotation;
             }
-           
+            /*при грабе ручка "прыгает" в сторону нефизично. из за этого она выкакивает из области отслеживания (и, более того, выталкивается даже за пределы хинджа и динамик аттач не сдвигается. 
+             * при этом за счет ширины коллайдера сокет инициализируется, и отображает аттач в старом необновленном месте (при этом ручка за пределами, поэтому перемещение аттача не срабатывает.
+             * при отпускании все ок, физика выталкивает ручку обратно в сокет, и аттач случается где надо, но выглядит коряво
+             * чтобы избежать этого сделана костыльная функция проверки после выхода из сокета, в какую сторону вышла ручка, и перемещение аттач трансформа туда
+            */
+            handleDynamicAttach.transform.rotation = handle.transform.rotation;
             yield return null;
         }
     }
-    
+    public void ChechWhereHandleAndMoveDynAttachTransform()
+    {
+        CalculateAnglesToStartAndEnd();
+        if (m_angleCurToEnd >= rotationFromStartToFinish && m_angleCurToEnd>=m_angleCurToStart)
+        {
+            handleDynamicAttach.transform.rotation = m_StartPlayingTransform.rotation;
+        }
+        else if(m_angleCurToStart >= rotationFromStartToFinish && m_angleCurToEnd <= m_angleCurToStart)
+        {
+            handleDynamicAttach.transform.rotation = m_EndPlayingTransform.rotation;
+        }
+    }
     public void PlayRecordAtMoment()
     {
         
