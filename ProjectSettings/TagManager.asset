@@ -7,6 +7,7 @@ TagManager:
   - PlateRecordPlayer
   - TV
   - FireFlame
+  - UIInteractable
   layers:
   - Default
   - TransparentFX
