@@ -8,6 +8,9 @@ TagManager:
   - TV
   - FireFlame
   - UIInteractable
+  - PlateRecord
+  - PlateRecordPlayerHandle
+  - PlateRecordPlayerDynamicSocket
   layers:
   - Default
   - TransparentFX
