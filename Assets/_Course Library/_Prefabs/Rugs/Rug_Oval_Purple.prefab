@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4831875197572851655}
   - component: {fileID: 856661057673839922}
   - component: {fileID: 8614676173463808304}
+  - component: {fileID: 8314843576915247871}
   m_Layer: 0
   m_Name: Rug_Oval_Purple
   m_TagString: Untagged
@@ -103,7 +104,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 1026
   m_DistanceCalculationMode: 1
   m_SelectMode: 1
   m_FocusMode: 1
@@ -136,10 +137,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8314843576915247871}
+        m_TargetAssemblyTypeName: ToggleTeleportReticleVisibility, Assembly-CSharp
+        m_MethodName: TurnOnTeleportReticle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8314843576915247871}
+        m_TargetAssemblyTypeName: ToggleTeleportReticleVisibility, Assembly-CSharp
+        m_MethodName: TurnOffTeleportReticle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -197,6 +222,18 @@ MonoBehaviour:
   m_Teleporting:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8314843576915247871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190737620782889315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf825e1ecbc8ef4d890f8a58246778b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8538224040020134577
 GameObject:
   m_ObjectHideFlags: 0

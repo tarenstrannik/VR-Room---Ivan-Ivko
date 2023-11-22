@@ -20,11 +20,11 @@ MonoBehaviour:
   - Books
   - BuildingModels
   - Tools
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PlatterRecords
+  - RecordPlayerHandle
+  - DirectInteractionOnly
+  - RayInteractionOnly
+  - UIInteraction
   - 
   - 
   - 

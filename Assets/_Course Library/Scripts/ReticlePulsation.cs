@@ -11,7 +11,7 @@ public class ReticlePulsation : MonoBehaviour
 
     [SerializeField] private float minSizeCoef = 0.8f;
 
-    private void Start()
+    private void OnEnable()
     {
         curPulsationTime = 0f;
     }

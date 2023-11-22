@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PlateRecordPlayer
+  - TV
+  - FireFlame
+  - UIInteractable
+  - PlateRecord
+  - PlateRecordPlayerHandle
+  - PlateRecordPlayerDynamicSocket
   layers:
   - Default
   - TransparentFX
