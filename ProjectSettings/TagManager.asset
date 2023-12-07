@@ -16,6 +16,7 @@ TagManager:
   - Handle
   - Torch
   - PlayerBody
+  - Furniture
   layers:
   - Default
   - TransparentFX
