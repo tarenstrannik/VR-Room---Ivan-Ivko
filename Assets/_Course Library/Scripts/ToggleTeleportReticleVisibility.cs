@@ -24,8 +24,4 @@ public class ToggleTeleportReticleVisibility : MonoBehaviour
         m_TeleportationArea.customReticle = null;
     }
 
-    private void OnEnable()
-    {
-        TurnOffTeleportReticle();
-    }
 }

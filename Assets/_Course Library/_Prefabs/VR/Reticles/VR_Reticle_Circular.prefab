@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8316821507885964222}
   - component: {fileID: 4955246626782319643}
   - component: {fileID: 7142820903540285649}
-  - component: {fileID: 320354868035231093}
   m_Layer: 0
   m_Name: VR_Reticle_Circular
   m_TagString: Untagged
@@ -62,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4f816cbd04e37fa47ae16f6a8a40a59d, type: 2}
+  - {fileID: 2100000, guid: e8838b849215e40439484e9628bdfbf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,15 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &320354868035231093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8656087483511947524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63a17f688c2257340932d4f108c45fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

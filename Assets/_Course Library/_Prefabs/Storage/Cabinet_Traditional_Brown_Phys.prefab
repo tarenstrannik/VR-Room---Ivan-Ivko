@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7036302267681566353}
   - component: {fileID: 7457134460281788860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9137407456027863929}
   - component: {fileID: 4219969539799504855}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,9 +119,9 @@ GameObject:
   - component: {fileID: 6133416375085268425}
   - component: {fileID: 7678147779379666855}
   - component: {fileID: 3275780062546080718}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorHandle
-  m_TagString: Untagged
+  m_TagString: Handle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -365,7 +365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 441333821103939237}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SecondAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 3168874961277424756}
   - component: {fileID: 4292370081865830956}
   - component: {fileID: 5199688499276388062}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Colliders_Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +522,7 @@ GameObject:
   - component: {fileID: 7906243750526344557}
   - component: {fileID: 3221850155707886399}
   - component: {fileID: 1828400278659025543}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Colliders_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 5953770832190603098}
   - component: {fileID: 3944714286106768846}
   - component: {fileID: 6510112137481507675}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cabinet_Traditional
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,9 +791,9 @@ GameObject:
   - component: {fileID: 5002937483596165870}
   - component: {fileID: 4575027172483583879}
   - component: {fileID: 8680318847666423522}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorHandle
-  m_TagString: Untagged
+  m_TagString: Handle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1037,7 +1037,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4774978268623433644}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1072,13 +1072,13 @@ GameObject:
   - component: {fileID: 7970425238032737749}
   - component: {fileID: 7572251009566176991}
   - component: {fileID: 6485989080310517327}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CabinetLeftJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7293888009119372107
 Transform:
   m_ObjectHideFlags: 0
@@ -1411,7 +1411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7187406905816604742}
   - component: {fileID: 3063784692908852734}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cabinet_Traditional_Brown_Phys
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1459,7 +1459,7 @@ Rigidbody:
   m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
@@ -1477,7 +1477,7 @@ GameObject:
   - component: {fileID: 4277066597999955424}
   - component: {fileID: 6934624458775527793}
   - component: {fileID: 2306411693402455738}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cabinet_Traditional_Door_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1647,7 +1647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3277780534888356433}
   - component: {fileID: 8480316758666275799}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1704,7 +1704,7 @@ GameObject:
   - component: {fileID: 3594901893233846544}
   - component: {fileID: 8990287820458309667}
   - component: {fileID: 535381602958638727}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cabinet_Traditional_Door_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1874,7 +1874,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7223835587747904380}
   - component: {fileID: 2154430922729685011}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1930,13 +1930,13 @@ GameObject:
   - component: {fileID: 1692244822885127657}
   - component: {fileID: 1532070050575059812}
   - component: {fileID: 4582122258358479702}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CabinetRightJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2022135565318560204
 Transform:
   m_ObjectHideFlags: 0

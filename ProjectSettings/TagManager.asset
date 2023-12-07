@@ -11,6 +11,11 @@ TagManager:
   - PlateRecord
   - PlateRecordPlayerHandle
   - PlateRecordPlayerDynamicSocket
+  - Backpack
+  - Box
+  - Handle
+  - Torch
+  - PlayerBody
   layers:
   - Default
   - TransparentFX
@@ -20,13 +25,13 @@ TagManager:
   - UI
   - TeleportArea
   - Face
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - NoPeaking
+  - LeftHand
+  - RightHand
+  - PlayerBody
+  - PlayerTeleportHand
+  - DynamicObjects
+  - DynamicObjectsInHand
   - 
   - 
   - 
