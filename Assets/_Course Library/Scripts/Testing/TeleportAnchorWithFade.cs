@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+//using System.Diagnostics;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -14,6 +16,7 @@ public class TeleportAnchorWithFade : TeleportationAnchor
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
+ 
         base.OnSelectEntered(args);
 
         if (teleportTrigger == TeleportTrigger.OnSelectEntered)
@@ -22,18 +25,21 @@ public class TeleportAnchorWithFade : TeleportationAnchor
 
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
+
         if (teleportTrigger == TeleportTrigger.OnSelectExited)
             StartCoroutine(FadeSequence(base.OnSelectExited, args));
     }
 
     protected override void OnActivated(ActivateEventArgs args)
     {
+
         if (teleportTrigger == TeleportTrigger.OnActivated)
             StartCoroutine(FadeSequence(base.OnActivated, args));
     }
 
     protected override void OnDeactivated(DeactivateEventArgs args)
     {
+
         if (teleportTrigger == TeleportTrigger.OnDeactivated)
             StartCoroutine(FadeSequence(base.OnDeactivated, args));
     }
