@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -6,12 +7,23 @@ public class TeleportAreaWithFade : TeleportationArea
 {
     private FadeCanvas fadeCanvas = null;
 
+    private bool m_isHover;
     protected override void Awake()
     {
         base.Awake();
         fadeCanvas = FindObjectOfType<FadeCanvas>();
     }
+    protected override void OnHoverEntered(HoverEnterEventArgs args)
+    {
+        base.OnHoverEntered(args);
+        m_isHover = true;
+    }
+    protected override void OnHoverExited(HoverExitEventArgs args)
+    {
 
+        base.OnHoverExited(args);
+        m_isHover = false;
+    }
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
         base.OnSelectEntered(args);
@@ -22,10 +34,22 @@ public class TeleportAreaWithFade : TeleportationArea
 
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
+
         if (teleportTrigger == TeleportTrigger.OnSelectExited)
-            StartCoroutine(FadeSequence(base.OnSelectExited, args));
+        {
+            DelayBeforeExit(args);
+        }
     }
 
+    private IEnumerator DelayBeforeExit(SelectExitEventArgs args)
+    {
+        yield return new WaitForEndOfFrame();
+        if (m_isHover)
+        {
+            m_isHover = false;
+            StartCoroutine(FadeSequence(base.OnSelectExited, args));
+        }
+    }
     protected override void OnActivated(ActivateEventArgs args)
     {
         if (teleportTrigger == TeleportTrigger.OnActivated)
