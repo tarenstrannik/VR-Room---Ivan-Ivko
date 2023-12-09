@@ -7,13 +7,13 @@ public class TeleportAreaWithFade : TeleportationArea
 {
     private FadeCanvas fadeCanvas = null;
 
-    private bool m_isHover;
+   // private bool m_isHover;
     protected override void Awake()
     {
         base.Awake();
         fadeCanvas = FindObjectOfType<FadeCanvas>();
     }
-    protected override void OnHoverEntered(HoverEnterEventArgs args)
+   /* protected override void OnHoverEntered(HoverEnterEventArgs args)
     {
         base.OnHoverEntered(args);
         m_isHover = true;
@@ -23,7 +23,7 @@ public class TeleportAreaWithFade : TeleportationArea
 
         base.OnHoverExited(args);
         m_isHover = false;
-    }
+    }*/
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
         base.OnSelectEntered(args);
@@ -37,10 +37,11 @@ public class TeleportAreaWithFade : TeleportationArea
 
         if (teleportTrigger == TeleportTrigger.OnSelectExited)
         {
-            DelayBeforeExit(args);
+            StartCoroutine(FadeSequence(base.OnSelectExited, args));
         }
+    
     }
-
+/*
     private IEnumerator DelayBeforeExit(SelectExitEventArgs args)
     {
         yield return new WaitForEndOfFrame();
@@ -49,7 +50,7 @@ public class TeleportAreaWithFade : TeleportationArea
             m_isHover = false;
             StartCoroutine(FadeSequence(base.OnSelectExited, args));
         }
-    }
+    }*/
     protected override void OnActivated(ActivateEventArgs args)
     {
         if (teleportTrigger == TeleportTrigger.OnActivated)

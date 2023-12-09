@@ -8,13 +8,13 @@ public class TeleportAnchorWithFade : TeleportationAnchor
 {
     private FadeCanvas fadeCanvas = null;
 
-    private bool m_isHover;
+    //private bool m_isHover;
     protected override void Awake()
     {
         base.Awake();
         fadeCanvas = FindObjectOfType<FadeCanvas>();
     }
-    protected override void OnHoverEntered(HoverEnterEventArgs args)
+  /*  protected override void OnHoverEntered(HoverEnterEventArgs args)
     {
         base.OnHoverEntered(args);
         m_isHover = true;
@@ -24,7 +24,7 @@ public class TeleportAnchorWithFade : TeleportationAnchor
 
         base.OnHoverExited(args);
         m_isHover = false;
-    }
+    }*/
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
  
@@ -39,10 +39,10 @@ public class TeleportAnchorWithFade : TeleportationAnchor
 
         if (teleportTrigger == TeleportTrigger.OnSelectExited)
         {
-            DelayBeforeExit(args);
+            StartCoroutine(FadeSequence(base.OnSelectExited, args));
         }
     }
-
+    /*
     private IEnumerator DelayBeforeExit(SelectExitEventArgs args)
     {
         yield return new WaitForEndOfFrame();
@@ -51,7 +51,7 @@ public class TeleportAnchorWithFade : TeleportationAnchor
             m_isHover = false;
             StartCoroutine(FadeSequence(base.OnSelectExited, args));
         }
-    }
+    }*/
 
     protected override void OnActivated(ActivateEventArgs args)
     {
