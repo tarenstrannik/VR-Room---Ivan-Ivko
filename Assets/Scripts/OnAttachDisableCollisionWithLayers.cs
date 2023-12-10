@@ -18,82 +18,67 @@ public class OnAttachDisableCollisionWithLayers : MonoBehaviour
     [SerializeField] private float m_changingDelay = 0.5f;
     [SerializeField] private float m_changingBackDelay = 0.5f;
 
-    private Coroutine m_changeWithDelay=null;
-    private Coroutine m_unchangeWithDelay = null;
     public void ChangeCollisionLayer(SelectEnterEventArgs args)
     {
+        if (args.interactableObject.transform.gameObject.GetComponent<ChangeCollisionLevel>() != null)
+        {
 
-        StopCoroutines();
-        if (args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>()!=null && !args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>().IsFireStopped)
-        {
-            args.interactableObject.transform.gameObject.SetLayerRecursively(m_collisionLayerToExcludeBodyIfFiringTorch);
+            if (args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>() != null && !args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>().IsFireStopped)
+            {
+                args.interactableObject.transform.gameObject.GetComponent<ChangeCollisionLevel>().SetCollisionLevel(m_collisionLayerToExcludeBodyIfFiringTorch, 0);
+            }
+            else
+            {
+                args.interactableObject.transform.gameObject.GetComponent<ChangeCollisionLevel>().SetCollisionLevel(m_collisionLayerToExcludeBody, 0);
+            }
         }
-        else
-        {
-            args.interactableObject.transform.gameObject.SetLayerRecursively(m_collisionLayerToExcludeBody);
-        }
-        
     }
 
     public void UnchangeCollisionLayer(SelectExitEventArgs args)
     {
-
-        StopCoroutines();
-        if (args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>() != null && !args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>().IsFireStopped)
+        if (args.interactableObject.transform.gameObject.GetComponent<ChangeCollisionLevel>() != null)
         {
-            args.interactableObject.transform.gameObject.SetLayerRecursively(m_defaultFireCollisionLayer);
+            if (args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>() != null && !args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>().IsFireStopped)
+            {
+                args.interactableObject.transform.gameObject.GetComponent<ChangeCollisionLevel>().SetCollisionLevel(m_defaultFireCollisionLayer, 0);
+            }
+            else
+            {
+                args.interactableObject.transform.gameObject.GetComponent<ChangeCollisionLevel>().SetCollisionLevel(m_defaultCollisionLayer, 0);
+            }
         }
-        else
-        {
-            args.interactableObject.transform.gameObject.SetLayerRecursively(m_defaultCollisionLayer);
-        }
-        
     }
-
-    private void StopCoroutines()
-    {
-        if (m_changeWithDelay != null) StopCoroutine(m_changeWithDelay);
-        m_changeWithDelay = null;
-        if (m_unchangeWithDelay != null) StopCoroutine(m_unchangeWithDelay);
-        m_unchangeWithDelay = null;
-    }
-
 
     public void ChangeCollisionLayerWithDelay(SelectEnterEventArgs args)
     {
-
-        StopCoroutines();
-        m_changeWithDelay=StartCoroutine(DelayBeforeChangeCollisionLayer(args));
-    }
-
-    private IEnumerator DelayBeforeChangeCollisionLayer(SelectEnterEventArgs args)
-    {
-        var curDelay = m_changingDelay;
-        while(curDelay>=0)
+        if (args.interactableObject.transform.gameObject.GetComponent<ChangeCollisionLevel>() != null)
         {
-            curDelay -= Time.deltaTime;
-            yield return null;
+            if (args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>() != null && !args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>().IsFireStopped)
+            {
+                args.interactableObject.transform.gameObject.GetComponent<ChangeCollisionLevel>().SetCollisionLevel(m_collisionLayerToExcludeBodyIfFiringTorch, m_changingDelay);
+            }
+            else
+            {
+                args.interactableObject.transform.gameObject.GetComponent<ChangeCollisionLevel>().SetCollisionLevel(m_collisionLayerToExcludeBody, m_changingDelay);
+            }
         }
-        ChangeCollisionLayer(args);
     }
 
     public void UnchangeCollisionLayerWithDelay(SelectExitEventArgs args)
     {
-
-        StopCoroutines();
-        m_unchangeWithDelay = StartCoroutine(DelayBeforeUnChangeCollisionLayer(args));
-    }
-
-    private IEnumerator DelayBeforeUnChangeCollisionLayer(SelectExitEventArgs args)
-    {
-        var curDelay = m_changingBackDelay;
-        while (curDelay >= 0)
+        if (args.interactableObject.transform.gameObject.GetComponent<ChangeCollisionLevel>() != null)
         {
-            curDelay -= Time.deltaTime;
-            yield return null;
+            if (args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>() != null && !args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>().IsFireStopped)
+            {
+                args.interactableObject.transform.gameObject.GetComponent<ChangeCollisionLevel>().SetCollisionLevel(m_defaultFireCollisionLayer, m_changingBackDelay);
+            }
+            else
+            {
+                args.interactableObject.transform.gameObject.GetComponent<ChangeCollisionLevel>().SetCollisionLevel(m_defaultCollisionLayer, m_changingBackDelay);
+            }
         }
-        UnchangeCollisionLayer(args);
     }
+
 
 
 }
