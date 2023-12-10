@@ -32,14 +32,14 @@ TagManager:
   - PlayerBody
   - PlayerTeleportHand
   - DynamicObjects
-  - DynamicObjectsInHand
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - DynamicObjectsInRightHand
+  - DynamicObjectsInLeftHand
+  - DynamicObjectsOnBody
+  - DynamicObjectsInRightRayHand
+  - DynamicObjectsInLeftRayHand
+  - RightRayHand
+  - LeftRayHand
+  - PlayerHead
   - 
   - 
   - 

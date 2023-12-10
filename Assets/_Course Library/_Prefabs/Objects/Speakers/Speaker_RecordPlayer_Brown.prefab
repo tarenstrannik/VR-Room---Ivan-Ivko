@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2941231096548464824}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EndPlayingTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 731499652388794277}
   - component: {fileID: 3411283388142870454}
   - component: {fileID: 5625172172375439273}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: HandleSocketDynamic
-  m_TagString: Untagged
+  m_TagString: PlateRecordPlayerDynamicSocket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 4349367901322056824}
   - component: {fileID: 6376915564352388065}
   - component: {fileID: 223600417971326250}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2474271861812806835}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ Transform:
   m_GameObject: {fileID: 1456420236666779174}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.012400009, y: 0.0044000307, z: 0.17990008}
+  m_LocalPosition: {x: -0.05, y: 0.0044000307, z: 0.17990008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -467,7 +467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3507431913323981822}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ Transform:
   m_GameObject: {fileID: 1952996915905102690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.012400009, y: 0.0044000307, z: 0.17990008}
+  m_LocalPosition: {x: -0.05, y: 0.0044000307, z: 0.17990008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -498,7 +498,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2930428066979307021}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ Transform:
   m_GameObject: {fileID: 2355083042083362468}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.0124, y: 0.0044, z: 0.1799}
+  m_LocalPosition: {x: -0.05, y: 0.0044, z: 0.1799}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 5400528794519824137}
   - component: {fileID: 1546119879753576631}
   - component: {fileID: 7522413976968195954}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Speaker_RecordPlayer_Platter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +635,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5319288813284681703}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BasePlayingTransformAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -666,7 +666,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7001769778912908799}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RecordAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -697,7 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8836269891899256833}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: StartPlayingTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,7 +729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7440652842842277063}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: StartPlayingTransformAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 6134500926582614212}
   - component: {fileID: 9059119343497666217}
   - component: {fileID: 1775528004622777408}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Speaker_RecordPlayer_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -865,7 +865,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4586984195176559938}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: HandleSocketDynamicForAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -898,7 +898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8454205532335570324}
   - component: {fileID: 3848540929278381485}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -952,7 +952,7 @@ GameObject:
   - component: {fileID: 3671110729152765959}
   - component: {fileID: 3610990516028147429}
   - component: {fileID: 3658091880036040681}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RecordSocket
   m_TagString: PlateRecordPlayer
   m_Icon: {fileID: 0}
@@ -1117,12 +1117,12 @@ GameObject:
   - component: {fileID: 1738210743210445737}
   - component: {fileID: 7231473317914563996}
   - component: {fileID: 5734570686272376127}
-  - component: {fileID: 5229417225278622841}
   - component: {fileID: 1889025085283108802}
   - component: {fileID: 1901111000103085478}
-  m_Layer: 0
+  - component: {fileID: 6403760837381855580}
+  m_Layer: 13
   m_Name: Speaker_RecordPlayer_Handle
-  m_TagString: Untagged
+  m_TagString: PlateRecordPlayerHandle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1241,7 +1241,46 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &5229417225278622841
+--- !u!59 &1889025085283108802
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681845508952784951}
+  m_ConnectedBody: {fileID: 8869789419922120335}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0.014723974, z: 0}
+  m_Axis: {x: 0, y: 1, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: -0.10836681, y: 0.06222491, z: -0.036259856}
+  serializedVersion: 2
+  m_UseSpring: 1
+  m_Spring:
+    spring: 0
+    damper: 1.5
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 1
+  m_ExtendedLimits: 0
+  m_UseAcceleration: 0
+  m_Limits:
+    min: 0
+    max: 63.2
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!114 &1901111000103085478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1250,7 +1289,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4681845508952784951}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: cea2304cd4eb73b42a92d817b5d56904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joint: {fileID: 1889025085283108802}
+--- !u!114 &6403760837381855580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681845508952784951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd98ffae9a537454ea2ca7dbaeb66483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -1393,58 +1445,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!59 &1889025085283108802
-HingeJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4681845508952784951}
-  m_ConnectedBody: {fileID: 8869789419922120335}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0.014723974, z: 0}
-  m_Axis: {x: 0, y: 1, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.10836681, y: 0.06222491, z: -0.036259856}
-  serializedVersion: 2
-  m_UseSpring: 1
-  m_Spring:
-    spring: 0
-    damper: 1.5
-    targetPosition: 0
-  m_UseMotor: 0
-  m_Motor:
-    targetVelocity: 0
-    force: 0
-    freeSpin: 0
-  m_UseLimits: 1
-  m_ExtendedLimits: 0
-  m_UseAcceleration: 0
-  m_Limits:
-    min: 0
-    max: 63.2
-    bounciness: 0
-    bounceMinVelocity: 0.2
-    contactDistance: 0
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
---- !u!114 &1901111000103085478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4681845508952784951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cea2304cd4eb73b42a92d817b5d56904, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  joint: {fileID: 0}
 --- !u!1 &4888267004625437987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,7 +1454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3122638956551095580}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EndPlayingTransformAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1487,7 +1487,7 @@ GameObject:
   - component: {fileID: 4533065757242783132}
   - component: {fileID: 5704545418792117472}
   - component: {fileID: 7477878410978203194}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: TooltipBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1561,7 +1561,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9022003850921209433}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpeakerAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1592,7 +1592,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7946742256284989834}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BasePlayingTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1626,7 +1626,7 @@ GameObject:
   - component: {fileID: 4683969234944962984}
   - component: {fileID: 4329159400109749345}
   - component: {fileID: 6646076604254530731}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: HandleSocketStatic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1840,7 +1840,7 @@ GameObject:
   - component: {fileID: 3985227778144262397}
   - component: {fileID: 1830475390648149465}
   - component: {fileID: 2367456202303228169}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: PlayerTooltip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1941,7 +1941,7 @@ GameObject:
   - component: {fileID: 1212727250947004291}
   - component: {fileID: 1980908464564561006}
   - component: {fileID: 7957231392093043971}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Speaker_RecordPlayer_Lid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2030,7 +2030,8 @@ GameObject:
   - component: {fileID: 4223256853260537097}
   - component: {fileID: 8417222164054529767}
   - component: {fileID: 6404674191265363656}
-  m_Layer: 0
+  - component: {fileID: 3439453219774564229}
+  m_Layer: 13
   m_Name: Speaker_RecordPlayer_Brown
   m_TagString: PlateRecordPlayer
   m_Icon: {fileID: 0}
@@ -2111,7 +2112,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 512
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -2203,7 +2204,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -2404,6 +2405,7 @@ MonoBehaviour:
   - Place record on the plate
   - Take handle in hand using grip
   - Place handle on the record at place where you want music to start
+  - Enjoy!
 --- !u!114 &6404674191265363656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2417,6 +2419,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_helperCanvas: {fileID: 6046275446612356879}
+  m_playerTag: PlayerBody
+  m_TooltipDistance: 1
+--- !u!135 &3439453219774564229
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6549980035440210037}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8504399984022892120
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,7 +2451,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6178165007872119239}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2442,7 +2467,7 @@ Transform:
   m_GameObject: {fileID: 8504399984022892120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.0124, y: 0.0044, z: 0.1799}
+  m_LocalPosition: {x: -0.05, y: 0.0044, z: 0.1799}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

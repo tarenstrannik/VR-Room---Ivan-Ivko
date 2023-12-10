@@ -10,13 +10,16 @@ public class DeactivateHandsCollidersOnAttach : MonoBehaviour
     [SerializeField] private float m_DeactivationDelay = 0.5f;
     public void EnableColliders()
     {
-        foreach(var collider in m_PhysicalColliders)
+       
+        CancelInvoke();
+        foreach (var collider in m_PhysicalColliders)
         {
             collider.SetActive(true);
         }
     }
     public void DisableColliders()
     {
+        CancelInvoke();
         foreach (var collider in m_PhysicalColliders)
         {
             collider.SetActive(false);
@@ -24,10 +27,13 @@ public class DeactivateHandsCollidersOnAttach : MonoBehaviour
     }
     public void EnableCollidersWithDelay()
     {
+        
+        CancelInvoke();
         Invoke("EnableColliders", m_ActivationDelay);
     }
     public void DisableCollidersWithDelay()
     {
+        CancelInvoke();
         Invoke("DisableColliders", m_DeactivationDelay);
     }
 }

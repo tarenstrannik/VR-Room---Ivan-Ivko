@@ -14,9 +14,17 @@ public class OnAttachDisableCollisionWithLayers : MonoBehaviour
     [SerializeField] private int m_defaultCollisionLayer;
     [SerializeField] private int m_defaultFireCollisionLayer;
 
-    public void Attach(SelectEnterEventArgs args)
+
+    [SerializeField] private float m_changingDelay = 0.5f;
+    [SerializeField] private float m_changingBackDelay = 0.5f;
+
+    private Coroutine m_changeWithDelay=null;
+    private Coroutine m_unchangeWithDelay = null;
+    public void ChangeCollisionLayer(SelectEnterEventArgs args)
     {
-        if(args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>()!=null && !args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>().IsFireStopped)
+
+        StopCoroutines();
+        if (args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>()!=null && !args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>().IsFireStopped)
         {
             args.interactableObject.transform.gameObject.SetLayerRecursively(m_collisionLayerToExcludeBodyIfFiringTorch);
         }
@@ -27,8 +35,10 @@ public class OnAttachDisableCollisionWithLayers : MonoBehaviour
         
     }
 
-    public void Detach(SelectExitEventArgs args)
+    public void UnchangeCollisionLayer(SelectExitEventArgs args)
     {
+
+        StopCoroutines();
         if (args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>() != null && !args.interactableObject.transform.gameObject.GetComponentInChildren<IgniteFire>().IsFireStopped)
         {
             args.interactableObject.transform.gameObject.SetLayerRecursively(m_defaultFireCollisionLayer);
@@ -39,4 +49,52 @@ public class OnAttachDisableCollisionWithLayers : MonoBehaviour
         }
         
     }
+
+    private void StopCoroutines()
+    {
+        if (m_changeWithDelay != null) StopCoroutine(m_changeWithDelay);
+        m_changeWithDelay = null;
+        if (m_unchangeWithDelay != null) StopCoroutine(m_unchangeWithDelay);
+        m_unchangeWithDelay = null;
+    }
+
+
+    public void ChangeCollisionLayerWithDelay(SelectEnterEventArgs args)
+    {
+
+        StopCoroutines();
+        m_changeWithDelay=StartCoroutine(DelayBeforeChangeCollisionLayer(args));
+    }
+
+    private IEnumerator DelayBeforeChangeCollisionLayer(SelectEnterEventArgs args)
+    {
+        var curDelay = m_changingDelay;
+        while(curDelay>=0)
+        {
+            curDelay -= Time.deltaTime;
+            yield return null;
+        }
+        ChangeCollisionLayer(args);
+    }
+
+    public void UnchangeCollisionLayerWithDelay(SelectExitEventArgs args)
+    {
+
+        StopCoroutines();
+        m_unchangeWithDelay = StartCoroutine(DelayBeforeUnChangeCollisionLayer(args));
+    }
+
+    private IEnumerator DelayBeforeUnChangeCollisionLayer(SelectExitEventArgs args)
+    {
+        var curDelay = m_changingBackDelay;
+        while (curDelay >= 0)
+        {
+            curDelay -= Time.deltaTime;
+            yield return null;
+        }
+        UnchangeCollisionLayer(args);
+    }
+
+
 }
+
