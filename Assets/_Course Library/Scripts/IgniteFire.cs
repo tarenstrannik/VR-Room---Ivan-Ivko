@@ -108,6 +108,7 @@ public class IgniteFire : MonoBehaviour
             m_controllerSaver.Controller.SendMessage("RemovePlayerFiringTorchAndDisableWaterCollider", m_torch, SendMessageOptions.DontRequireReceiver);
         }
         ChangeLayer();
+        SendMessage("ToggleClosedCaptionsActivity", false, SendMessageOptions.DontRequireReceiver);
     }
 
     private void StartFire()
@@ -121,7 +122,7 @@ public class IgniteFire : MonoBehaviour
         if (m_controllerSaver!=null && m_controllerSaver.Controller != null)
             m_controllerSaver.Controller.SendMessage("AddPlayerFiringTorchAndEnableWaterCollider", m_torch, SendMessageOptions.DontRequireReceiver);
         ChangeLayer();
-
+        SendMessage("ToggleClosedCaptionsActivity", true, SendMessageOptions.DontRequireReceiver);
     }
 
     private void ChangeLayer()

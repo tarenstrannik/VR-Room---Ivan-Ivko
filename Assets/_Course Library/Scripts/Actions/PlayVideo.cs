@@ -92,12 +92,14 @@ public class PlayVideo : MonoBehaviour
     {
         videoMaterial.color = Color.white;
         videoPlayer.Play();
+        SendMessage("ToggleClosedCaptionsActivity", true, SendMessageOptions.DontRequireReceiver);
     }
 
     public void Stop()
     {
         videoMaterial.color = Color.black;
         videoPlayer.Stop();
+        SendMessage("ToggleClosedCaptionsActivity", false, SendMessageOptions.DontRequireReceiver);
     }
 
     public void TogglePlayStop()
@@ -109,9 +111,15 @@ public class PlayVideo : MonoBehaviour
     public void TogglePlayPause()
     {
         if (videoPlayer.isPlaying)
+        {
             videoPlayer.Pause();
+            
+        }
         else
+        {
             Play();
+           
+        }
     }
 
     public void SetPlay(bool value)

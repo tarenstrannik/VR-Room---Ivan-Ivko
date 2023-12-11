@@ -10,7 +10,7 @@ public class SendCommandToTV : MonoBehaviour
     public void SendControlRayPlayPause()
     {
         GameObject tv = SendRay();
-        tv.SendMessageUpwards("SwitchTVPlayPause", SendMessageOptions.DontRequireReceiver);
+        if(tv!=null) tv.SendMessageUpwards("SwitchTVPlayPause", SendMessageOptions.DontRequireReceiver);
     }
     private GameObject? SendRay()
     {
