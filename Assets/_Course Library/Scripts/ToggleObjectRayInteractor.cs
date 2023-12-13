@@ -8,8 +8,13 @@ public class ToggleObjectRayInteractor : MonoBehaviour
 {
     [SerializeField] private GameObject m_rayInteractor;
     [SerializeField] private bool m_isRayInteractorActive = false;
-    private bool m_isHoveringOnUI = false;
+    [SerializeField] private bool m_isHoveringOnUI = false;
+    [SerializeField]  private XRDirectInteractor m_directInteractor;
 
+    private void Awake()
+    {
+        m_directInteractor = GetComponent<XRDirectInteractor>();
+    }
     public void SetIsHoveringOnUI(bool state)
     {
         m_isHoveringOnUI = state;
@@ -42,7 +47,8 @@ public class ToggleObjectRayInteractor : MonoBehaviour
     }
     public void EnableRayInteractorNoCondition()
     {
-        if (m_isRayInteractorActive&&!m_isHoveringOnUI)
+        //Debug.Log(m_isRayInteractorActive + " " + m_isHoveringOnUI + " " + m_directInteractor.interactablesSelected.Count);
+        if (m_isRayInteractorActive&&!m_isHoveringOnUI && m_directInteractor.interactablesSelected.Count==0)
         {
 
             m_rayInteractor.SetActive(true);
@@ -61,9 +67,11 @@ public class ToggleObjectRayInteractor : MonoBehaviour
     }
     public void ToggleRayInteractor(bool value)
     {
-        if (!m_isHoveringOnUI)
+        if (!m_isHoveringOnUI && m_directInteractor.interactablesSelected.Count == 0)
         {
             m_rayInteractor.SetActive(value);
         }
     }
+
+
 }
