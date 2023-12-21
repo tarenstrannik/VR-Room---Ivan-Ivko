@@ -25,9 +25,17 @@ public class MoveWithVelocity : MonoBehaviour
         ApplyVelocity();
     }
 
+    private float m_speedCoef = 0.5f;
+    public float SpeedCoef
+    {
+        set
+        {
+            m_speedCoef = value;
+        }
+    }
     private void ApplyVelocity()
     {
-        Vector3 targetVelocity = inputVelocity * speed;
+        Vector3 targetVelocity = inputVelocity * speed* m_speedCoef;
         targetVelocity = origin.TransformDirection(targetVelocity);
 
         Vector3 velocityChange = targetVelocity - rigidBody.velocity;

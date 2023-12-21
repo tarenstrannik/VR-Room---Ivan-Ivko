@@ -70,10 +70,13 @@ public class XRButton : XRBaseInteractable
 
     public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
     {
+       
         if(updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)
         {
+           
             if (isHovered)
             {
+                
                 float height = FindButtonHeight();
                 ApplyHeight(height);
             }
